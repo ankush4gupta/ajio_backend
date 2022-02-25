@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const Product = require("../models/product.model");
 
-// all product route
+// all product route------------------------------->
 router.get("", async (req, res) => {
     const page = req.query.page || 1;
     const item = req.query.items || 2;
@@ -18,8 +18,17 @@ router.get("", async (req, res) => {
     }
 })
 
-
-// query route
+//route  for id controller------------------------------->
+router.get("/:id", async (req, res) => {
+    try {
+        const user = await Product.findById(req.params.id).lean().exec(); //findById will Read document By MONGO-ID & .param() =mongoid
+        return res.send(user);
+    }
+    catch (err) {
+        return res.status(500).send(err.message);
+    }
+});
+// query route------------------------------->
 
 router.get("/q", async (req, res) => {
     const page = req.query.page || 1;
