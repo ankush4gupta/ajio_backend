@@ -1,42 +1,68 @@
 const express = require("express");
-
+var cors = require("cors");
 const path = require("path");
 const connect = require("./configs/db");
 const app = express();
 const static_path = path.join(__dirname, "./public");
 const productcontroller = require("./controllers/product.controller");
-
+const { register, login, newToken } = require("./controllers/authControllers");
+const passport = require("./configs/google-Oauth");
 app.use(express.json());
-
+app.use(cors());
 
 const port = process.env.PORT || 4493;
-app.use(express.static(static_path))
+app.use(express.static(static_path));
 
-//  index route 
+//  index route
+
 app.get("", (req, res) => {
     try {
-        res.send("homepage")
+        res.send("homepage");
     } catch (error) {
-        res.send(error)
+        res.send(error);
     }
-})
+});
 
+// login & register route
+app.post("/register", register);
+app.post("/login", login);
 
+// google auth
+passport.serializeUser(function (user, done) {
+    done(null, user);
+});
 
+passport.deserializeUser(function (user, done) {
+    done(null, user);
+});
 
+app.get(
+    "/auth/google",
+    passport.authenticate("google", { scope: ["email", "profile"] })
+);
 
-// product route 
-app.use("/product", productcontroller)
+app.get(
+    "/auth/google/callback",
+    passport.authenticate("google", {
+        // successRedirect: static_path,
+        failureRedirect: "/auth/google/failure",
+    }),
+    (req, res) => {
+        const { user } = req;
+        const token = newToken(user);
+        return res.send({ user, token });
+    }
+);
 
+// product route
+app.use("/product", productcontroller);
 
-
-
-// connect function 
+// connect function
 app.listen(port, async () => {
     try {
-        await connect()
-        console.log("listening port 4493")
+        await connect();
+        console.log("listening port 4493");
     } catch (error) {
-        console.log(error.message)
+        console.log(error.message);
     }
-})
+});
