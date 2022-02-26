@@ -23,8 +23,11 @@ app.get("", (req, res) => {
 
 
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 // product route 
 app.use("/product", productcontroller)
 
