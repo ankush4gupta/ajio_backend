@@ -1,5 +1,5 @@
 const express = require("express");
-// var cors = require("cors");
+var cors = require("cors");
 const path = require("path");
 const connect = require("./configs/db");
 const app = express();
@@ -8,7 +8,7 @@ const productcontroller = require("./controllers/product.controller");
 const { register, login, newToken } = require("./controllers/authControllers");
 const passport = require("./configs/google-Oauth");
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 
 const port = process.env.PORT || 4493;
 app.use(express.static(static_path));

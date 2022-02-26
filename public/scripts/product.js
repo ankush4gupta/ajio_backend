@@ -90,7 +90,7 @@ function display(products) {
         price_div.append(price_discount, price_main, dis);
         div.onclick = () => {
             localStorage.setItem('productdb', JSON.stringify(ele._id));
-            window.location.href = "./specific_product.html"
+            // window.location.href = "./specific_product.html"
 
             // let url = new URL("https://clone-dummy-ajio.herokuapp.com/product");
             // GFG_Fun(url)
