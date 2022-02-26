@@ -9,7 +9,7 @@
     displayData()
     async function displayData(){
         try{
-            const response =await fetch(`http://localhost:4493/product/${productId}`);
+            const response =await fetch(`https://clone-dummy-ajio.herokuapp.com/${productId}`);
             // const response =await fetch(`http://localhost:4493/product/${mongooseId}`);
 
             const data = await response.json();
