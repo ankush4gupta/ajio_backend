@@ -1,5 +1,5 @@
 // DOM------------------------------------------------------------->
-var ele = JSON.parse(localStorage.getItem("productdb")) || [];
+var productdb = JSON.parse(localStorage.getItem("productdb")) || [];
 var bag = JSON.parse(localStorage.getItem("bagItems")) || [];
 var closet = JSON.parse(localStorage.getItem("closetItems")) || [];
 // console.log("cartD!!!!",ele) 
@@ -8,8 +8,8 @@ var closet = JSON.parse(localStorage.getItem("closetItems")) || [];
 
 async function displayData(){
     try{
-        const response =await fetch("http://localhost:4493/product/62151cd010a048bc3c186b2b");
-                    // const response =await fetch(`http://localhost:4493/product/${mongooseId}`);
+        // const response =await fetch("http://localhost:4493/product/62151cd010a048bc3c186b2b");
+        const response =await fetch(`/product/${productdb}`);
 
         const data = await response.json();
         console.log(data)
