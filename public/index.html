@@ -878,9 +878,10 @@
         } catch (err) {
             console.log(err);
         }
-
+        console.log(register_data);
         register_data = JSON.stringify(register_data);
-        let url = "http://localhost:2555/register";
+        // let url = "http://localhost:2555/register";
+        let url = "http://localhost:4493/register";
 
         let response = await fetch(url, {
             method: "POST",
@@ -891,7 +892,7 @@
         });
 
         let data = await response.json();
-        console.log(data);
+        console.log("data");
         document.getElementById("forSignup1").style.display = "none";
         alert("Successufully registered Login to continue");
 
@@ -933,7 +934,7 @@
             console.log(err);
         }
         loginForcx = JSON.stringify(loginForcx);
-        let urlLogin = "http://localhost:2555/login";
+        let urlLogin = "http://localhost:4493/login";
 
         let resOfLogin = await fetch(urlLogin, {
             method: "POST",
