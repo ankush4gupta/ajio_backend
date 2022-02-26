@@ -1,6 +1,7 @@
 var next_page = 1;
 let id;
 let pagecount;
+console.log(fetch_data())
 fetch_data()
 document.getElementById("pagecount_previous").onclick = () => {
     if (next_page > 1) {
@@ -13,6 +14,7 @@ document.getElementById("pagecount_previous").onclick = () => {
 
 }
 let arr;
+
 async function fetch_data() {
 
     try {
