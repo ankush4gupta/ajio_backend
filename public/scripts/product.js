@@ -99,7 +99,7 @@ function display(products) {
 
 
 
-            // window.location.href = "./specific_product.html"
+            window.location.href = "./specific_product.html"
         }
         if (offer == "") {
             div.append(div_img, brand, detail, price_div);
