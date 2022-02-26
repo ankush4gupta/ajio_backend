@@ -164,7 +164,7 @@ body {
 .cate,
 .pri,
 .brand,
-.discount {
+.discount,.color {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -173,7 +173,7 @@ body {
 .cate_check,
 #price,
 #brands,
-#discounts {
+#discounts ,#colors{
   margin-left: 45px;
 }
 #filters i {
@@ -182,12 +182,27 @@ body {
 #cate_gry_hide,
 #hide_prices,
 #hide_brand,
-#hide_discount {
+#hide_discount,
+#hide_color {
   display: none;
 }
 #categories,
 #price,
 #brands,
-#discounts {
+#discounts ,
+#colors{
   display: none;
+}
+
+
+#pagecount{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 20px;
+}
+#pagecount_previous,#pagecount_next{
+  /* border: 1px solid red; */
+  padding: 1px 5px;
+  background-color: lightgrey;
+  cursor: pointer;
 }

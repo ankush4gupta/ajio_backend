@@ -4,6 +4,8 @@ let total_save = 0;
 let total_price = 0;
 let final_bag = {};
 let bag_arr = JSON.parse(localStorage.getItem('bagItems')) || [];
+let total_bag_local = JSON.parse(localStorage.getItem('total_bag')) || [];
+console.log(total_bag_local)
 display_bag(bag_arr)
 document.getElementById('card_len').innerHTML = `(${bag_arr.length} items)`;
 function display_bag(bag_arr) {
@@ -43,7 +45,7 @@ function display_bag(bag_arr) {
             bag_arr.push(ele);
 
             localStorage.setItem('bagItems', JSON.stringify(bag_arr));
-
+            window.location.href = "./bag.html"
 
             display_bag(bag_arr);
 
@@ -56,13 +58,12 @@ function display_bag(bag_arr) {
             qty.innerHTML = `qty ${ele.quant} `;
             bag_arr.splice(index, 1);
             bag_arr.push(ele);
-
+            window.location.href = "./bag.html"
             localStorage.setItem('bagItems', JSON.stringify(bag_arr));
 
 
-            display_bag(bag_arr);
+            window.onload = display_bag(bag_arr);
 
-            console.log(ele.quant);
         }
 
 
@@ -114,11 +115,20 @@ final_bag = {
     total_bag,
     total_price
 }
+window.onload = bagto()
+function bagto() {
+    // console.log(total_bag_local.total_save)
+    document.getElementById('bagt').innerHTML = `Rs. ${total_bag.toFixed(2)}`;
+    document.getElementById('bags').innerHTML = `Rs. ${total_save.toFixed(2)}`;
+    document.getElementById('bagp').innerHTML = `Rs. ${total_price.toFixed(2)}`;
+}
 
-document.getElementById('bagt').innerHTML = `Rs. ${total_bag.toFixed(2)}`;
-document.getElementById('bags').innerHTML = `Rs. ${total_save.toFixed(2)}`;
-document.getElementById('bagp').innerHTML = `Rs. ${total_price.toFixed(2)}`;
+
 localStorage.setItem('total_bag', JSON.stringify(final_bag));
+
+
+
+
 // display_bag(bag_arr);
 
 
@@ -130,5 +140,6 @@ function mydelete(index) {
     localStorage.setItem('bagItems', JSON.stringify(bag_arr));
     display_bag(bag_arr);
     document.getElementById('card_len').innerHTML = `(${bag_arr.length} items)`;
+    window.location.href = "./bag.html"
 
 }

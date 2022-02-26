@@ -60,27 +60,7 @@
             </div>
           </div>
         </div>
-        <div>
-          <div class="pri">
-            <i id="hide_prices" class="fas fa-minus"></i>
-            <i id="show_prices" class="fas fa-plus"></i>
-            <p>Prices</p>
-          </div>
-          <div id="price">
-            <div>
-              <input type="checkbox" name="" id="r500" /> Below Rs. 500
-            </div>
-            <div>
-              <input type="checkbox" name="" id="r1000" /> Below Rs. 500-1000
-            </div>
-            <div>
-              <input type="checkbox" name="" id="r1500" /> Below Rs. 1000-1500
-            </div>
-            <div>
-              <input type="checkbox" name="" id="r2000" /> Below Rs. 1500-2000
-            </div>
-          </div>
-        </div>
+
         <div>
           <div class="brand">
             <i id="hide_brand" class="fas fa-minus"></i>
@@ -88,14 +68,27 @@
             <p>Brands</p>
           </div>
           <div id="brands">
-            <div>
-              <input type="checkbox" name="" id="jack" /> Jack & Jones
-            </div>
-            <div><input type="checkbox" name="" id="nicks" /> Nike</div>
-            <div><input type="checkbox" name="" id="netplay" /> NETPLAY</div>
-            <div><input type="checkbox" name="" id="levis" /> LEVIS</div>
-            <div><input type="checkbox" name="" id="mpl" /> Mpl Sports</div>
-            <div><input type="checkbox" name="" id="adidas" /> adidas</div>
+
+            <div><input onchange="myfilter()" type="checkbox" name="" id="nicks" /> Nike</div>
+            <div><input onchange="myfilter()" type="checkbox" name="" id="netplay" /> NETPLAY</div>
+            <div><input onchange="myfilter()" type="checkbox" name="" id="levis" /> LEVIS</div>
+            <div><input onchange="myfilter()" type="checkbox" name="" id="mpl" /> Mpl Sports</div>
+            <div><input onchange="myfilter()" type="checkbox" name="" id="adidas" /> adidas</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="color">
+            <i id="hide_color" class="fas fa-minus"></i>
+            <i id="show_color" class="fas fa-plus"></i>
+
+            <p>Colors</p>
+          </div>
+          <div id="colors">
+            <div><input onchange="myfilter()" type="checkbox" name="" id="blue" />Blue</div>
+            <div><input onchange="myfilter()" type="checkbox" name="" id="red" /> Orange</div>
+            <div><input onchange="myfilter()" type="checkbox" name="" id="green" />Green</div>
+            <div><input onchange="myfilter()" type="checkbox" name="" id="black" /> Black</div>
           </div>
         </div>
         <div>
@@ -106,10 +99,31 @@
             <p>Discount</p>
           </div>
           <div id="discounts">
-            <div><input type="checkbox" name="" id="d20" /> 0-20%</div>
-            <div><input type="checkbox" name="" id="d40" /> 21-40%</div>
-            <div><input type="checkbox" name="" id="d60" />41-60%</div>
-            <div><input type="checkbox" name="" id="d80" /> 61-80%</div>
+            <div><input onchange="myfilter()" type="checkbox" name="" id="d20" /> 0-20%</div>
+            <div><input onchange="myfilter()" type="checkbox" name="" id="d40" /> 21-40%</div>
+            <div><input onchange="myfilter()" type="checkbox" name="" id="d60" />41-60%</div>
+            <div><input onchange="myfilter()" type="checkbox" name="" id="d80" /> 61-80%</div>
+          </div>
+        </div>
+        <div>
+          <div class="pri">
+            <i id="hide_prices" class="fas fa-minus"></i>
+            <i id="show_prices" class="fas fa-plus"></i>
+            <p>Prices</p>
+          </div>
+          <div id="price">
+            <div>
+              <input onchange="myfilter()" type="checkbox" name="" id="r700" /> Below Rs. 700
+            </div>
+            <div>
+              <input onchange="myfilter()" type="checkbox" name="" id="r1500" /> Between Rs. 700-1500
+            </div>
+            <div>
+              <input onchange="myfilter()" type="checkbox" name="" id="r2500" /> Between Rs. 1500-2500
+            </div>
+            <div>
+              <input onchange="myfilter()" type="checkbox" name="" id="r2600" /> More than Rs. 2500
+            </div>
           </div>
         </div>
       </div>
@@ -143,10 +157,29 @@
           </select>
         </div>
       </div>
-      <div id="products"></div>
+
+      <div id="products">
+
+
+      </div>
+
+
+      <div id="pagecount">
+        <p>
+
+          <i id="pagecount_previous" class="fas fa-angle-left"></i>
+          <span id="pagenumber"></span>
+          <i id="pagecount_next" class="fas fa-angle-right"></i>
+
+
+        </p>
+      </div>
     </div>
   </div>
+
+
   <div id="footer"></div>
+</body>
 </body>
 
 </html>

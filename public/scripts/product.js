@@ -1,6 +1,5 @@
-
 var next_page = 1;
-
+let id;
 let pagecount;
 fetch_data()
 document.getElementById("pagecount_previous").onclick = () => {
@@ -17,7 +16,7 @@ let arr;
 async function fetch_data() {
 
     try {
-        let response = await fetch(`https://clone-dummy-ajio.herokuapp.com/product?page=${next_page}&items=10`);
+        let response = await fetch(`/product?page=${next_page}&items=10`);
         let data = await response.json();
         // data.categories.prototype.price = 400;
         // console.log(data.categories.price);
@@ -86,12 +85,19 @@ function display(products) {
 
         price_offer.innerHTML = `Offer Price: <span style="color:#75cb7f">Rs. ${ele.offer_price}</span>`;
 
-        // sending id to the local storage for Specific product Page
         price_div.append(price_discount, price_main, dis);
         div.onclick = () => {
             localStorage.setItem('productdb', JSON.stringify(ele._id));
-           
-         window.location.href = "./specific_product.html"
+            window.location.href = "./specific_product.html"
+
+            // let url = new URL("https://clone-dummy-ajio.herokuapp.com/product");
+            // GFG_Fun(url)
+
+
+
+
+
+            // window.location.href = "./specific_product.html"
         }
         if (offer == "") {
             div.append(div_img, brand, detail, price_div);
@@ -106,7 +112,13 @@ function display(products) {
 
     })
 }
-
+// function to redirect to specific product page 
+function GFG_Fun(url) {
+    url.searchParams.set('_id', '62151cd010a048bc3c186b2d');
+    console.log(url)
+    // window.location.href = url.href;
+    window.location.href = "./specific_product.html"
+}
 // categories hide/show function 
 document.getElementById('cate_gry_show').onclick = () => {
     document.getElementById('cate_gry_show').style.display = "none"
@@ -207,6 +219,10 @@ document.getElementById('grid_3').onclick = () => {
 
 async function myfilter() {
 
+    // let load = document.createElement("img");
+    // load.src = "https://www.changecars.co.za/resources/front/img/loading.gif";
+    // document.getElementById("products").append(load)
+
     //  filter data for types 
     let tshirt = document.getElementById('tshirt').checked;
     let jacket = document.getElementById('jacket').checked;
@@ -301,81 +317,57 @@ async function myfilter() {
     }
 
     if (dis_filter.length == 0 && color_filter.length == 0 && price_filter.length == 0 && filter_pro.length == 0 && brand_filter.length == 0) {
+
+
+
+
         fetch_data()
         document.getElementById("pagecount").style.display = "flex"
-        // document.getElementById("pagecount").style.display = "block"
+
 
     } else {
-        try {
-            let response = await fetch(`http://localhost:4493/product/q?type=${filter_pro}&name=${brand_filter}&color=${color_filter}&page=${next_page}&items=10`);
-            let data = await response.json();
-            // data.categories.prototype.price = 400;
-            // console.log(data.categories.price);
-            let products = data.product
-            price_sort(products)
 
-            console.log('data:', data.product);
-            // pagecount = data.pagecount
-            // display(data.product, data.pagecount)
-            // myfilter(data.product)
-            document.getElementById("pagecount").style.display = "none"
-            products = data.product
-            display(data.product)
-        }
-        catch (er) {
-            console.log('er:', er);
 
-        }
+        debounce(filter_pro, brand_filter, color_filter)
+
+
     }
 
 
 
 
 
-    // if (tshirt) {
+}
+async function fetchfilterdata(filter_pro, brand_filter, color_filter) {
+    try {
+        let response = await fetch(`/product/q?type=${filter_pro}&name=${brand_filter}&color=${color_filter}&page=${next_page}&items=10`);
+        let data = await response.json();
+        let products = data.product
+        price_sort(products)
+        document.getElementById("pagecount").style.display = "none"
+        products = data.product
+        display(data.product)
+    }
+    catch (er) {
+        console.log('er:', er);
 
-    //     arr.filter((ele) => {
-    //         if (ele.type == "T-Shirt") {
-    //             filter_pro.push(ele);
-    //         }
-    //     })
-
-    // }
-    // if (jacket == true) {
-
-    //     arr.filter((ele) => {
-    //         if (ele.type == "Jacket") {
-    //             filter_pro.push(ele);
-    //         }
-    //     })
-
-    // }
-    // if (pant) {
-
-    //     arr.filter((ele) => {
-    //         if (ele.type == "pant") {
-    //             filter_pro.push(ele);
-    //         }
-    //     })
-
-    // }
-    // if (short) {
-    //     arr.filter((ele) => {
-    //         if (ele.type == "Shorts") {
-    //             filter_pro.push(ele);
-    //         }
-    //     })
-    // }
-
-    // display(filter_pro);
+    }
+}
 
 
-    // if (filter_pro.length == 0) {
-    //     display(arr);
-    // }
 
+function debounce(filter_pro, brand_filter, color_filter) {
 
-    // console.log(tshirt)
+    if (id) {
+
+        clearTimeout(id);
+    }
+    // document.getElementById("loader_page_jjj").style.display = "block";
+    id = setTimeout(function () {
+
+        // document.getElementById("loader_page_jjj").style.display = "none";
+        fetchfilterdata(filter_pro, brand_filter, color_filter)
+    }, 2000);
 
 }
 
