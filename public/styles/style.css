@@ -248,7 +248,7 @@ p {
 #forsignUpDetails1 {
     width: 90%;
     margin: auto;
-    border: 1px solid red;
+ 
     margin-top: 10%;
 }
 h2 {
@@ -269,9 +269,12 @@ h2 {
 #forFb1 {
     width: 47%;
     height: 100%;
+
     border: 2px solid #485995;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap:30;
+    /* justify-content: space-around; */
 }
 #forGoogle,
 #forGoogle1 {
@@ -279,7 +282,7 @@ h2 {
     height: 100%;
     border: 2px solid red;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 #imageOfFb,
@@ -293,7 +296,7 @@ h2 {
 #forFb1 > div > img,
 #forGoogle > div > img,
 #forGoogle1 > div > img {
-    padding-left: 70%;
+    /* padding-left: 50%; */
     padding-top: 30%;
     height: 60%;
     width: 100%;
@@ -307,12 +310,13 @@ h2 {
     /* border: 1px solid teal; */
     /* height: 100%; */
     padding-top: 0px;
-    width: 56%;
+    width: 47%;
     font-size: 13px;
     font-weight: 700;
     align-items: center;
     color: blue;
 }
+
 #textGoogle,
 #textGoogle1 {
     color: red;

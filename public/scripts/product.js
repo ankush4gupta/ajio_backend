@@ -3,6 +3,8 @@ let id;
 let pagecount;
 console.log(fetch_data())
 fetch_data()
+
+
 document.getElementById("pagecount_previous").onclick = () => {
     if (next_page > 1) {
 
@@ -18,7 +20,7 @@ let arr;
 async function fetch_data() {
 
     try {
-        let response = await fetch(`/product?page=${next_page}&items=10`);
+        let response = await fetch(`/product?page=${next_page}&items=15`);
         let data = await response.json();
         // data.categories.prototype.price = 400;
         // console.log(data.categories.price);
@@ -282,19 +284,23 @@ async function myfilter() {
 
     // filter for color 
     let blue = document.getElementById('blue').checked;
-    let red = document.getElementById('red').checked;
+    let brown = document.getElementById('brown').checked;
     let green = document.getElementById('green').checked;
     let black = document.getElementById('black').checked;
+    let white = document.getElementById('white').checked;
     // let adidas = document.getElementById('adidas').checked;
     let color_filter = [];
     if (blue) {
         color_filter.push("Blue")
-    } if (red) {
-        color_filter.push("orange")
+    } if (brown) {
+        color_filter.push("Brown")
     } if (green) {
         color_filter.push("Green")
     } if (black) {
         color_filter.push("Black")
+    }
+    if (white) {
+        color_filter.push("White")
     }
     console.log(color_filter)
     // if (adidas) {
@@ -369,7 +375,7 @@ function debounce(filter_pro, brand_filter, color_filter) {
 
         // document.getElementById("loader_page_jjj").style.display = "none";
         fetchfilterdata(filter_pro, brand_filter, color_filter)
-    }, 2000);
+    }, 1500);
 
 }
 

@@ -18,16 +18,7 @@ router.get("", async (req, res) => {
     }
 })
 
-//route  for id controller------------------------------->
-router.get("/:id", async (req, res) => {
-    try {
-        const user = await Product.findById(req.params.id).lean().exec(); //findById will Read document By MONGO-ID & .param() =mongoid
-        return res.send(user);
-    }
-    catch (err) {
-        return res.status(500).send(err.message);
-    }
-});
+
 // query route------------------------------->
 
 router.get("/q", async (req, res) => {
@@ -36,18 +27,21 @@ router.get("/q", async (req, res) => {
 
 
     try {
+
+        console.log("start")
         let product;
         let filter = {};
-        if (req.query.discount_price) {
-            const discount_pri = req.query.discount_price.split(",").map(Number)
-            filter.discount_price = { $in: { $lte: discount_pri } }
+        // if (req.query.discount_price) {
+        //     const discount_pri = req.query.discount_price.split(",").map(Number)
+        //     filter.discount_price = { $in: { $lte: discount_pri } }
 
-            // filter.discount_price = { $and: [{ $gt: 1000 }] }
-            // filter.discount_price = { $lt: req.query.discount_price }
+        // filter.discount_price = { $and: [{ $gt: 1000 }] }
+        // filter.discount_price = { $lt: req.query.discount_price }
 
-            console.log(filter, "discount")
+        // console.log(filter, "discount")
 
-        } if (req.query.color) {
+        // } 
+        if (req.query.color) {
             const color = req.query.color.split(",")
             filter.color = { $in: color }
         }
@@ -61,16 +55,28 @@ router.get("/q", async (req, res) => {
         if (req.query.discount) {
             filter.discount = { $gte: req.query.discount }
         }
-        // console.log(filter)
+        console.log(filter)
 
         product = await Product.find(filter).lean().exec();
         let pagecount = await Product.countDocuments()
         pagecount = Math.ceil(pagecount / item)
         res.status(201).send({ product, pagecount })
+
     } catch (error) {
         res.status(500).send({ message: error.message })
+        console.log("nhi")
     }
 })
+//route  for id controller------------------------------->
+router.get("/:id", async (req, res) => {
+    try {
+        const user = await Product.findById(req.params.id).lean().exec(); //findById will Read document By MONGO-ID & .param() =mongoid
+        return res.send(user);
+    }
+    catch (err) {
+        return res.status(500).send(err.message);
+    }
+});
 
 // router.post("", async (req, res) => {
 //     try {
