@@ -71,12 +71,13 @@
     height: 40px;
     width: 400px;
     display: flex;
+    margin-left: 55px;
   }
 
   #phase_t {
     display: flex;
     width: 120%;
-    justify-content: space-between;
+    justify-content: space-around;
 
   }
   /* #phase_t > p {
