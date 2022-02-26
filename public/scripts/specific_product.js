@@ -1,21 +1,22 @@
 // DOM------------------------------------------------------------->
-var productdb = JSON.parse(localStorage.getItem("productdb")) || [];
+var productID = JSON.parse(localStorage.getItem("productdb")) || [];
+console.log("productID", productID)
 var bag = JSON.parse(localStorage.getItem("bagItems")) || [];
 var closet = JSON.parse(localStorage.getItem("closetItems")) || [];
 // console.log("cartD!!!!",ele) 
 // console.log("products",products)
 // https://clone-dummy-ajio.herokuapp.com/
 
-async function displayData(){
-    try{
+async function displayData() {
+    try {
         // const response =await fetch("http://localhost:4493/product/62151cd010a048bc3c186b2b");
-        const response =await fetch(`/product/${productdb}`);
+        const response = await fetch(`/product/${productID}`);
 
         const data = await response.json();
         console.log(data)
         showDetails(data)
     }
-    catch(err){
+    catch (err) {
         console.log(err.message)
     }
 }
@@ -28,7 +29,7 @@ function showDetails(ele) {
     img.setAttribute("src", `${ele.image.img1}`);
     // console.log(ele.image.img1)
     img.setAttribute("id", "center_image");
-  
+
     // leftbox----------------------------------------------------------->
     //  side_img1-------------------------------------------------------------->
     var innerBox1 = document.getElementById("innerBox1");
@@ -87,96 +88,96 @@ function showDetails(ele) {
 
 
     // size Button---------------------------------->
-    addSize=document.getElementById("size");
-    addSize.addEventListener("click",addS);
-    var count=0;
-    function addS(){
-        console.log("count:",count);
+    addSize = document.getElementById("size");
+    addSize.addEventListener("click", addS);
+    var count = 0;
+    function addS() {
+        console.log("count:", count);
         count++;
-      
+
     }
-// BAG BUTTON----------------------------------------------------------------->
+    // BAG BUTTON----------------------------------------------------------------->
 
-// console.log(ele)
-// console.log(bag.quant)
-var bagBtn = document.getElementById("bag")
-bagBtn.addEventListener("click", dataforCart)
-function dataforCart() {
+    // console.log(ele)
+    // console.log(bag.quant)
+    var bagBtn = document.getElementById("bag")
+    bagBtn.addEventListener("click", dataforCart)
+    function dataforCart() {
 
-    for (let i = 0; i < bag.length; i++) {
+        for (let i = 0; i < bag.length; i++) {
 
-        if (bag[i].id == ele.id) {
-        
-            ele.quant = ele.quant + 1;
-           
-            bag.splice(i, 1);
-             break;
+            if (bag[i].id == ele.id) {
+
+                ele.quant = ele.quant + 1;
+
+                bag.splice(i, 1);
+                break;
+            }
         }
-     }
-     if(count>=1){
-        bag.push(ele);
-        localStorage.setItem("bagItems", JSON.stringify(bag));
-        console.log("bag",bag)
-     }
-     else{
-        alert("Please Select size first")
+        if (count >= 1) {
+            bag.push(ele);
+            localStorage.setItem("bagItems", JSON.stringify(bag));
+            console.log("bag", bag)
+        }
+        else {
+            alert("Please Select size first")
+        }
+
     }
-   
-}
 
-// CLOSEST BUTTON---------------------------------------------------->
-var closetBtn=document.getElementById("closet");
-closetBtn.addEventListener("click",dataforCloset);
-function dataforCloset(){
+    // CLOSEST BUTTON---------------------------------------------------->
+    var closetBtn = document.getElementById("closet");
+    closetBtn.addEventListener("click", dataforCloset);
+    function dataforCloset() {
 
-    if(count>=1){
- closet.push(ele);
-    localStorage.setItem("closetItems", JSON.stringify(closet));
-    console.log("closet",closet)
-}
-else{
-    alert("Please Select size first")
-}
-}
+        if (count >= 1) {
+            closet.push(ele);
+            localStorage.setItem("closetItems", JSON.stringify(closet));
+            console.log("closet", closet)
+        }
+        else {
+            alert("Please Select size first")
+        }
+    }
 
-// // var cBtn=document.getElementById("cBtn");
-// // cBtn.addEventListener("click",gotoCloset);
-// // function gotoCloset(){
-// //   location.href = 'closet.html'
-// // }
-// When we click on left-side small images they are display in main box-------------->
-small_image1.addEventListener("click", showImg1);
-function showImg1() {
-    console.log("bbcb",ele.image)
-    main_img.innerHTML = "";
-    var small1 = document.createElement("img");
-    small1.setAttribute("src", `${ele.image.img1}`);
-    small1.setAttribute("id","imgg1")
+    // // var cBtn=document.getElementById("cBtn");
+    // // cBtn.addEventListener("click",gotoCloset);
+    // // function gotoCloset(){
+    // //   location.href = 'closet.html'
+    // // }
+    // When we click on left-side small images they are display in main box-------------->
+    small_image1.addEventListener("click", showImg1);
+    function showImg1() {
+        console.log("bbcb", ele.image)
+        main_img.innerHTML = "";
+        var small1 = document.createElement("img");
+        small1.setAttribute("src", `${ele.image.img1}`);
+        small1.setAttribute("id", "imgg1")
 
-    
-    main_img.append(small1);
-}
-small_image2.addEventListener("click", showImg2);
-function showImg2() {
 
-    main_img.innerHTML = "";
-    var small2 = document.createElement("img");
-    small2.setAttribute("src", `${ele.image.img2}`);
-    small2.setAttribute("id","imgg2")
+        main_img.append(small1);
+    }
+    small_image2.addEventListener("click", showImg2);
+    function showImg2() {
 
-    
-    main_img.append(small2);
-}
+        main_img.innerHTML = "";
+        var small2 = document.createElement("img");
+        small2.setAttribute("src", `${ele.image.img2}`);
+        small2.setAttribute("id", "imgg2")
 
-small_image3.addEventListener("click", showImg3);
-function showImg3() {
-    main_img.innerHTML = "";
-    var small3 = document.createElement("img");
-    small3.setAttribute("src", `${ele.image.img3}`);
-    small3.setAttribute("id","imgg3")
 
-    
-    main_img.append(small3);
-}
+        main_img.append(small2);
+    }
+
+    small_image3.addEventListener("click", showImg3);
+    function showImg3() {
+        main_img.innerHTML = "";
+        var small3 = document.createElement("img");
+        small3.setAttribute("src", `${ele.image.img3}`);
+        small3.setAttribute("id", "imgg3")
+
+
+        main_img.append(small3);
+    }
 
 }
