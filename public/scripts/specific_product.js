@@ -56,6 +56,7 @@ function showDetails(ele) {
     var product_name = document.createElement("h4");
     product_name.setAttribute("id", "product_name");
     product_name.innerText = ele.name;
+    console.log(ele.name)
 
     var pDetails = document.getElementById("pDetails");
     var product_details = document.createElement("h4");
@@ -77,7 +78,7 @@ function showDetails(ele) {
     var product_pdiscount = document.createElement("h3");
     product_pdiscount.setAttribute("id", "product_pdiscount");
     product_pdiscount.innerText = `( ${ele.discount}%)`;
-    // //  append--------------------------------------------------------------------->
+    // //  append--------------------------------pName------------------------------------->
     main_img.append(img);
     innerBox1.append(small_image1);
     innerBox2.append(small_image2);

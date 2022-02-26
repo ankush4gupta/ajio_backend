@@ -171,27 +171,15 @@
 
 <script src="./scripts/specific_product.js"></script>
 <script type="module">
-    // to display the nav
-    import navbar from "./components/navbar.js  ";
-    import footer from "./footerComponents/footer.js";
-    let navDiv = document.getElementById("navbar4");
-    navDiv.innerHTML = navbar();
-    //  FOR DISPLYING THE LOGIN PART
-    let displaylogin = localStorage.getItem("userName");
-    console.log(displaylogin);
+    import navbar from './components/navbar.js'
 
-    if (displaylogin !== "") {
-        document.getElementById("signInJoin").style.display = "none";
-    } else {
-        document.getElementById("forlogout").style.display = "none";
-    }
+    document.getElementById('navbar4').innerHTML = navbar();
 
-    // END FOR DISPLYING THE LOGIN PART
-    let footerDiv = document.getElementById("toDisplayFooter");
-    footerDiv.innerHTML = footer();
 
+    // ..............................................................................
     document.getElementById("ajioLogo").addEventListener("click", () => {
         window.location.href = "index.html";
+        console.log("hu");
     });
     // go to closest
     document.getElementById("hangerImg").addEventListener("click", () => {
@@ -210,73 +198,49 @@
         document.getElementById("toDisplaymen1").style.display = "block";
     });
     dropDownMens.addEventListener("mouseout", function () {
-        setTimeout(myGreeting1, 2000);
-    });
-    //for stopping hovering
-    function myGreeting1() {
         document.getElementById("toDisplaymen1").style.display = "none";
-    }
+    });
 
-    // end for stopping hovering
     let dropDownWomens = document.getElementById("toDisplaywomen");
     dropDownWomens.addEventListener("mouseover", function () {
         document.getElementById("toDisplaywomen1").style.display = "block";
     });
-    // hovering over part
     dropDownWomens.addEventListener("mouseout", function () {
-        setTimeout(myGreeting2, 2000);
-    });
-    //for stopping hovering
-    function myGreeting2() {
         document.getElementById("toDisplaywomen1").style.display = "none";
-    }
-    // end for stopping hovering
+    });
 
     let dropDownKids = document.getElementById("toDisplaykids");
     dropDownKids.addEventListener("mouseover", function () {
         document.getElementById("toDisplaykids1").style.display = "block";
     });
     dropDownKids.addEventListener("mouseout", function () {
-        setTimeout(myGreeting3, 2000);
-    });
-    function myGreeting3() {
         document.getElementById("toDisplaykids1").style.display = "none";
-    }
+    });
 
     let indie = document.getElementById("indie");
     indie.addEventListener("mouseover", function () {
         document.getElementById("indie1").style.display = "block";
     });
     indie.addEventListener("mouseout", function () {
-        setTimeout(myGreeting4, 2000);
-    });
-    function myGreeting4() {
         document.getElementById("indie1").style.display = "none";
-    }
+    });
 
     let HandM = document.getElementById("handm");
     HandM.addEventListener("mouseover", function () {
         document.getElementById("handm1").style.display = "block";
     });
     HandM.addEventListener("mouseout", function () {
-        setTimeout(myGreeting5, 2000);
-    });
-    function myGreeting5() {
         document.getElementById("handm1").style.display = "none";
-    }
+    });
 
-    document
-        .getElementById("searchajio")
-        .addEventListener("click", function () {
-            document.getElementById("searchresult").style.display = "block";
-        });
+    document.getElementById("searchajio").addEventListener("click", function () {
+        document.getElementById("searchresult").style.display = "block";
+    });
 
     // FOR SIGN UP POP UP
-    document
-        .getElementById("signInJoin")
-        .addEventListener("click", function () {
-            document.getElementById("forSignup").style.display = "block";
-        });
+    document.getElementById("signInJoin").addEventListener("click", function () {
+        document.getElementById("forSignup").style.display = "block";
+    });
 
     // FOR CLOSING
     document.getElementById("crossImg").addEventListener("click", () => {
@@ -309,8 +273,7 @@
     });
     // for color change
     document.getElementById("forInputName").addEventListener("click", () => {
-        document.getElementById("forInputName").style.borderBottomColor =
-            "#d5a249";
+        document.getElementById("forInputName").style.borderBottomColor = "#d5a249";
     });
 
     document.getElementById("forInputEmail").addEventListener("click", () => {
@@ -319,157 +282,51 @@
     });
 
     document.getElementById("forPassword").addEventListener("click", () => {
-        document.getElementById("forPassword").style.borderBottomColor =
-            "#d5a249";
+        document.getElementById("forPassword").style.borderBottomColor = "#d5a249";
     });
 
     document.getElementById("optionalF").addEventListener("click", () => {
-        document.getElementById("optionalF").style.borderBottomColor =
-            "#d5a249";
+        document.getElementById("optionalF").style.borderBottomColor = "#d5a249";
     });
 
-    // document.getElementById("forOtp").addEventListener("click", () => {
-    //     document.getElementById("forOtp").style.borderBottomColor = "#d5a249";
-    // });
+    document.getElementById("forOtp").addEventListener("click", () => {
+        document.getElementById("forOtp").style.borderBottomColor = "#d5a249";
+    });
 
-    // document.getElementById("sendOtp").addEventListener("click", () => {
-    //     let randomToDis = Math.floor(Math.random() * 200 + 1000);
-    //     let nameOFCx = document.getElementById("forInputName").value;
-    //     let obj = {
-    //         otp: randomToDis,
-    //         name: nameOFCx,
-    //     };
-    //     localStorage.setItem("randomN", JSON.stringify(obj));
-    //     console.log(randomToDis);
-    //     document.getElementById("forSignup1").style.display = "none";
-    //     // document.getElementById("forSignup2").style.display = "block";
-    //     alert(randomToDis);
-    // });
+    //
+    document.getElementById("sendOtp").addEventListener("click", () => {
+        let randomToDis = Math.floor(Math.random() * 200 + 1000);
+        let nameOFCx = document.getElementById("forInputName").value;
+        let obj = {
+            otp: randomToDis,
+            name: nameOFCx,
+        };
+        localStorage.setItem("randomN", JSON.stringify(obj));
+        console.log(randomToDis);
+        document.getElementById("forSignup1").style.display = "none";
+        document.getElementById("forSignup2").style.display = "block";
+        alert(randomToDis);
+    });
 
     // CONFIRMING
-    // document.getElementById("confirmOTP").addEventListener("click", () => {
-    //     let otpVerification = JSON.parse(localStorage.getItem("randomN"));
+    document.getElementById("confirmOTP").addEventListener("click", () => {
+        let otpVerification = JSON.parse(localStorage.getItem("randomN"));
 
-    //     let customerOTP = document.getElementById("forOtp").value;
-    //     console.log(otpVerification.otp);
-    //     console.log(customerOTP);
-    //     if (otpVerification.otp == customerOTP) {
-    //         document.getElementById(
-    //             "displayCxName"
-    //         ).innerHTML = `Hi ${otpVerification.name}`;
-    //         document.getElementById("forSignup2").style.display = "none";
-    //     } else {
-    //         alert("OTP incorrect");
-    //     }
-    // });
+        let customerOTP = document.getElementById("forOtp").value;
+        console.log(otpVerification.otp);
+        console.log(customerOTP);
+        if (otpVerification.otp == customerOTP) {
+            document.getElementById(
+                "displayCxName"
+            ).innerHTML = `Hi ${otpVerification.name}`;
+            document.getElementById("forSignup2").style.display = "none";
+        } else {
+            alert("OTP incorrect");
+        }
+    });
 
     // cancle function for cross button
-    // document.getElementById("loginClose2").addEventListener("click", () => {
-    //     document.getElementById("forSignup2").style.display = "none";
-    // });
-
-    //////////////////////////////BACKEND
-
-    async function Register() {
-        let register_data;
-        try {
-            register_data = {
-                name: document.getElementById("forInputName").value,
-                email: document.getElementById("forInputEmail").value,
-                password: document.getElementById("forPassword").value,
-            };
-        } catch (err) {
-            console.log(err);
-        }
-        console.log(register_data);
-        register_data = JSON.stringify(register_data);
-        // let url = "http://localhost:2555/register";
-        let url = "http://localhost:4493/register";
-
-        let response = await fetch(url, {
-            method: "POST",
-            body: register_data,
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-
-        let data = await response.json();
-        console.log("data");
-        document.getElementById("forSignup1").style.display = "none";
-        alert("Successufully registered Login to continue");
-
-        // document.getElementById("forSignup2").style.display = "none";
-    }
-    document.getElementById("sendOtp").addEventListener("click", Register);
-    //FOR GOOGLE OAUTH..................................................................
-
-    async function oAuth() {
-        let response = await fetch("http://localhost:2555/auth/google", {
-            method: "GET",
-            withCredentials: true,
-        });
-        // window.location.href = "http://localhost:2000/auth/google";
-        console.log(response);
-    }
-    document.getElementById("forGoogle").addEventListener("click", oAuth);
-    //FOR LOGIN....................................................
-    //login
-    document.getElementById("forlogin").addEventListener("click", () => {
-        document.getElementById("forlogindetails").style.display = "block";
-        document.getElementById("forSignup").style.display = "none";
-    });
-
-    //forclosing
-    document.getElementById("loginClose3").addEventListener("click", () => {
-        document.getElementById("forlogindetails").style.display = "none";
-    });
-
-    // CONNECTING TO BACKEND
-    async function Login() {
-        let loginForcx;
-        try {
-            loginForcx = {
-                email: document.getElementById("forloginEmail").value,
-                password: document.getElementById("forloginpassword").value,
-            };
-        } catch (err) {
-            console.log(err);
-        }
-        loginForcx = JSON.stringify(loginForcx);
-        let urlLogin = "http://localhost:4493/login";
-
-        let resOfLogin = await fetch(urlLogin, {
-            method: "POST",
-            body: loginForcx,
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-
-        let d = await resOfLogin.json();
-
-        console.log(d);
-        localStorage.setItem("userName", d.user.name);
-
-        document.getElementById("forlogindetails").style.display = "none";
-
-        window.location.href = "index.html";
-    }
-    document
-        .getElementById("loginConfirmation")
-        .addEventListener("click", Login);
-
-    let x = localStorage.getItem("userName");
-    console.log(x);
-    document.getElementById("displayCxName").innerHTML = x;
-
-    // for logout
-    document.getElementById("forlogout").addEventListener("click", function () {
-        let data = "";
-        document.getElementById("displayCxName").innerHTML = "";
-        document.getElementById("signInJoin").style.display = "block";
-        document.getElementById("forlogout").style.display = "none";
-        localStorage.setItem("userName", data);
+    document.getElementById("loginClose2").addEventListener("click", () => {
+        document.getElementById("forSignup2").style.display = "none";
     });
 </script>
