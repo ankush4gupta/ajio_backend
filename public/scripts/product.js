@@ -92,7 +92,7 @@ function display(products) {
             localStorage.setItem('productdb', JSON.stringify(ele._id));
             // window.location.href = "./specific_product.html"
 
-            // let url = new URL("https://clone-dummy-ajio.herokuapp.com/product");
+            // let url = new URL("http://localhost:2555/specific_product.html");
             // GFG_Fun(url)
 
 
@@ -119,7 +119,7 @@ function GFG_Fun(url) {
     url.searchParams.set('_id', '62151cd010a048bc3c186b2d');
     console.log(url)
     // window.location.href = url.href;
-    window.location.href = "./specific_product.html"
+    // window.location.href = "./specific_product.html"
 }
 // categories hide/show function 
 document.getElementById('cate_gry_show').onclick = () => {

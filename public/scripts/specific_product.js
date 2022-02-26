@@ -6,7 +6,10 @@ var closet = JSON.parse(localStorage.getItem("closetItems")) || [];
 // console.log("cartD!!!!",ele) 
 // console.log("products",products)
 // https://clone-dummy-ajio.herokuapp.com/
+console.log("befpre")
+displayData()
 
+console.log("after")
 async function displayData() {
     try {
         // const response =await fetch("http://localhost:4493/product/62151cd010a048bc3c186b2b");
@@ -20,7 +23,7 @@ async function displayData() {
         console.log(err.message)
     }
 }
-displayData()
+
 function showDetails(ele) {
     //  main_img-------------------------------------------------------------->
     var main_img = document.getElementById("main_img");
