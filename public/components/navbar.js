@@ -40,7 +40,7 @@ function navbar() {
 
       <input type="text" name="" id="forInput" />
       <button id="forSignUpbtn">CONTINUE</button>
-      <button id="forlogin">Login</button>
+      <button id="forlogin">LOGIN</button>
       <p id="tAndC">
           By Signing in,I agree to
           <a
@@ -57,8 +57,8 @@ function navbar() {
       <img id="crossImg1" src="./images/close.png" alt="" />
   </div>
   <div id="forsignUpDetails1">
-      <h2>Welcome to AJIO</h2>
-      <p>Join/Sign In using</p>
+      <h2 id="id2">Welcome to AJIO</h2>
+      <p style="color:grey">Join/Sign In using</p>
       <div id="googleFb1">
           <div id="forFb1">
               <div id="imageOfFb1">
@@ -86,15 +86,15 @@ function navbar() {
           <hr />
       </div>
 
-      <p>Please set up your account</p>
+      <p style="color:grey">Please set up your account</p>
       <p id="todisplayNum"></p>
 
       <div id="forGender">
-          <div id="genderCheck"><p>Gender :</p></div>
+          <div id="genderCheck" style="color:grey"><p>Gender :</p></div>
           <div id="forRadio">
-              <label for="">Male</label>
+              <label for="" style="color:grey">Male</label>
               <input type="radio" name="" id="forRadioM" />
-              <label for="">Female</label>
+              <label for="" style="color:grey">Female</label>
               <input type="radio" name="" id="forRadiof" />
           </div>
       </div>
@@ -145,7 +145,7 @@ function navbar() {
   <input type="text" name="" id="forloginEmail" placeholder="Email" />
 
   <input
-      type="text"
+      type="password"
       name=""
       id="forloginpassword"
       placeholder="Password"

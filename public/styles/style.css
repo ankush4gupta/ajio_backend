@@ -214,7 +214,11 @@ p {
     display: none;
     font-weight: normal;
     z-index: 300000;
+
     /* position: fixed; */
+}
+#forSignup1 > P {
+    color: gray;
 }
 
 /* ........... */
@@ -248,13 +252,33 @@ p {
 #forsignUpDetails1 {
     width: 90%;
     margin: auto;
- 
+
     margin-top: 10%;
+}
+#forsignUpDetails > P {
+    color: grey;
+    font-size: 13px;
+}
+#sendOtp {
+    margin-top: 7%;
+    margin: 3%;
+    font-size: 17px;
+    padding: 3%;
+    width: 50%;
+    font-weight: normal;
+    background-color: #d5a249;
+    color: white;
+    border: none;
 }
 h2 {
     font-size: 27px;
     font-weight: normal;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "26 SourceSanPro";
+}
+#id2 {
+    font-size: 27px;
+    font-weight: normal;
+    font-family: "26 SourceSanPro";
 }
 
 #googleFb,
@@ -268,57 +292,68 @@ h2 {
 #forFb,
 #forFb1 {
     width: 47%;
-    height: 100%;
+    /* height: 100%; */
 
     border: 2px solid #485995;
     display: flex;
-    justify-content: center;
-    gap:30;
+    /* justify-content: center; */
+    /* gap: 30; */
     /* justify-content: space-around; */
 }
 #forGoogle,
 #forGoogle1 {
     width: 47%;
-    height: 100%;
+    /* height: 100%; */
     border: 2px solid red;
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
 }
 
 #imageOfFb,
 #imageOfFb1 #imageOfGoogle,
 #imageOfGoogle1 {
-    margin-top: 0%;
-    height: 100%;
-    width: 20%;
+    /* margin-top: 0%; */
+    /* height: 100%; */
+    /* width: 20%; */
+    /* border: 1px solid teal; */
 }
 #forFb > div > img,
-#forFb1 > div > img,
-#forGoogle > div > img,
-#forGoogle1 > div > img {
+#forFb1 > div > img {
     /* padding-left: 50%; */
+    /* border: 1px solid teal; */
+
     padding-top: 30%;
     height: 60%;
     width: 100%;
+    margin-left: 40%;
 }
+#forGoogle > div > img,
+#forGoogle1 > div > img {
+    padding-top: 27%;
+    height: 63%;
+    width: 100%;
+    margin-left: 80%;
+}
+
 /*  */
 #textFb,
-#textFb1,
-#textGoogle,
-#textGoogle1 {
+#textFb1 {
     display: flex;
     /* border: 1px solid teal; */
-    /* height: 100%; */
-    padding-top: 0px;
-    width: 47%;
-    font-size: 13px;
+    margin-left: 13%;
+    font-size: 10px;
     font-weight: 700;
     align-items: center;
     color: blue;
 }
-
 #textGoogle,
 #textGoogle1 {
+    display: flex;
+    /* border: 1px solid teal; */
+    margin-left: 20%;
+    font-size: 10px;
+    font-weight: 700;
+    align-items: center;
     color: red;
 }
 
@@ -330,6 +365,7 @@ h2 {
     width: 60%;
     align-items: center;
     margin: auto;
+    color: grey;
 }
 hr {
     width: 40%;
@@ -358,7 +394,7 @@ hr {
     margin-top: 7%;
     font-size: 17px;
     padding: 3%;
-    width: 50%;
+    width: 48%;
     font-weight: normal;
     background-color: #d5a249;
     color: white;
@@ -407,14 +443,14 @@ hr {
     margin-top: 3%;
     height: 35px;
 }
-#sendOtp,
+
 #confirmOTP,
 #loginConfirmation {
     margin-top: 7%;
     margin: 3%;
     font-size: 17px;
     padding: 3%;
-    width: 50%;
+    width: 24%;
     font-weight: normal;
     background-color: #d5a249;
     color: white;
