@@ -362,3 +362,7 @@ font-weight: 600;
      #coupon button{
          padding: 10px 15px;
      }
+
+     #user_sign_out{
+         display: none;
+     }

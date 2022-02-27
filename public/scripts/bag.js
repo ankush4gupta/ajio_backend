@@ -3,11 +3,31 @@ let total_bag = 0;
 let total_save = 0;
 let total_price = 0;
 let final_bag = {};
+
+
+
+
+
 let user_nameeeee = localStorage.getItem('userName') || [];
 console.log(user_nameeeee)
 if (user_nameeeee.length !== 0) {
-    document.getElementById("user_nameeee").innerHTML = user_nameeeee
+    document.getElementById("user_nameeee").innerHTML = user_nameeeee;
+    document.getElementById("user_sign_out").innerHTML = "Signout"
 }
+document.getElementById("user_nameeee").onclick = () => {
+    console.log("home")
+    window.location.href = "./index.html";
+
+}
+document.getElementById("pay_btn").onclick = () => {
+    if (user_nameeeee.length == 0) {
+        console.log("signup")
+        alert("please signup for futher steps")
+    } else {
+        window.location.href = "./delivery.html"
+    }
+}
+
 let bag_arr = JSON.parse(localStorage.getItem('bagItems')) || [];
 let total_bag_local = JSON.parse(localStorage.getItem('total_bag')) || [];
 console.log(total_bag_local)
@@ -148,3 +168,5 @@ function mydelete(index) {
     window.location.href = "./bag.html"
 
 }
+
+

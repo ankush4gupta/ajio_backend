@@ -1,3 +1,9 @@
+let user_nameeeee = localStorage.getItem('userName') || [];
+console.log(user_nameeeee)
+if (user_nameeeee.length !== 0) {
+    document.getElementById("user_nameeee").innerHTML = user_nameeeee
+}
+
 var arr = JSON.parse(localStorage.getItem("addressList")) || [];
 
 console.log(arr);

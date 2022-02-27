@@ -1,3 +1,9 @@
+let user_nameeeee = localStorage.getItem('userName') || [];
+console.log(user_nameeeee)
+if (user_nameeeee.length !== 0) {
+    document.getElementById("user_nameeee").innerHTML = user_nameeeee
+}
+
 let totalAmt = JSON.parse(localStorage.getItem("total_bag")) || {};
 let address = JSON.parse(localStorage.getItem('addressList')) || []
 let date_o = Math.floor(Math.random() * 10 + 1);
