@@ -8,7 +8,7 @@ let totalAmt = JSON.parse(localStorage.getItem("total_bag")) || {};
 let address = JSON.parse(localStorage.getItem('addressList')) || []
 let date_o = Math.floor(Math.random() * 10 + 1);
 console.log(date_o);
-document.getElementById('order_date').innerHTML = `${date_o} Feb`
+document.getElementById('order_date').innerHTML = `${date_o} March`
 document.getElementById("bagt").innerHTML = `Rs ${totalAmt.total_bag.toFixed(
     2
 )}`;
@@ -70,7 +70,7 @@ bag_arr.map((ele) => {
     let div1 = document.createElement("div")
     let image = document.createElement("img")
     let date_e = document.createElement('p');
-    date_e.innerHTML = `Expected Delivery : <b>${date_o} Feb</b>`;
+    date_e.innerHTML = `Expected Delivery : <b>${date_o} March</b>`;
     div1.setAttribute("class", "div_img")
     image.src = ele.image.img1;
     let quant = document.createElement('p');
