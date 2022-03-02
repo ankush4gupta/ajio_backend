@@ -217,9 +217,7 @@ p {
 
     /* position: fixed; */
 }
-#forSignup1 > P {
-    color: gray;
-}
+
 
 /* ........... */
 
@@ -255,10 +253,7 @@ p {
 
     margin-top: 10%;
 }
-#forsignUpDetails > P {
-    color: grey;
-    font-size: 13px;
-}
+
 #sendOtp {
     margin-top: 7%;
     margin: 3%;
