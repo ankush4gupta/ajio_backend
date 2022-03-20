@@ -6,7 +6,7 @@ This is a working clone of the Ajio website, this project has been done in order
 Working on this project helped us to learn a lot of new things that goes into building a website. This is our collaborative project under the guidance of MASAI Team to facilitate the full stack web development curriculam.
 
 # Uses
-We can sign in/login,signup,add products to cart,buy prducts from the site.
+We can sign in/login,signup,add products to cart,buy products from the site.
 
 # Functionalities Added
 <ul>
