@@ -20,9 +20,9 @@ We can sign in/login,signup,add products to cart,buy products from the site.
 
 # Team Members
 <ul>
+  <li>Praful Deore</li>
   <li>Ankush Gupta</li>
   <li>Srinidhi V</li>
-  <li>Praful Deore</li>
   <li>Prashant SL</li>
   <li>Saurabh Kumar Singh</li>
 </ul>
