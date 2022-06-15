@@ -380,6 +380,7 @@ function debounce(filter_pro, brand_filter, color_filter) {
 }
 
 function price_sort(products) {
+    console.log("sorting")
 
 
     document.getElementById('sorting_function').onchange = function displaysorted() {
